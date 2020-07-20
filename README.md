@@ -1,5 +1,5 @@
 # gongrok
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/hajimehoshi/ebiten)](https://pkg.go.dev/github.com/hajimehoshi/ebiten)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/revzim/gongrok)](https://pkg.go.dev/github.com/revzim/gongrok)
 [![GoDoc](https://godoc.org/github.com/revzim/gongrok?status.svg)](https://godoc.org/github.com/revzim/gongrok)
 [![Go Report Card](https://goreportcard.com/badge/github.com/revzim/gongrok)](https://goreportcard.com/report/github.com/revzim/gongrok)
 
