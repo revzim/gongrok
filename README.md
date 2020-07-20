@@ -18,4 +18,5 @@
   * place ngrok binary download in ngrok path ```./ngrok_bin/```
   * build or run
     * ```go run main.go | go build main.go```
-    * server will start & client located at ```http://localhost:8080/client```
+    * server will start 
+      * [client web app](http://localhost:8080/client) located at http://localhost:8080/client
