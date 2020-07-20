@@ -1,2 +1,5 @@
 **/logs/*.log
 **/ngrok
+
+# macOS Files
+.DS_Store
