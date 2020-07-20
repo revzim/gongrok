@@ -1,4 +1,4 @@
-module github.com/revzim/gongroktest
+module github.com/revzim/gongrok
 
 go 1.14
 
