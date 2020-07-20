@@ -20,7 +20,3 @@ go get github.com/revzim/gongrok
   * build or run
     * ```go run main.go | go build main.go```
     * server will start & client located at ```http://localhost:8080/client```
-
-
-## Author
-  
