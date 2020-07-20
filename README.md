@@ -1,4 +1,7 @@
 # gongrok
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/hajimehoshi/ebiten)](https://pkg.go.dev/github.com/hajimehoshi/ebiten)
+[![GoDoc](https://godoc.org/github.com/revzim/gongrok?status.svg)](https://godoc.org/github.com/revzim/gongrok)
+[![Go Report Card](https://goreportcard.com/badge/github.com/revzim/gongrok)](https://goreportcard.com/report/github.com/revzim/gongrok)
 
 ## golang [ngrok](https://ngrok.com/) wrapper
   * `Secure introspectable tunnels to local host`
