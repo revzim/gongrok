@@ -9,11 +9,11 @@
     *  download the binary
     *  place binary within your working directory
     *  ```default: ./ngrok_bin/```
-```
-go get github.com/revzim/gongrok
-```
+    
+ * ``` go get github.com/revzim/gongrok ```
 
 ## Example
+
 * [WEB APP EXAMPLE](https://github.com/revzim/gongrok/example/webapp)
   * place ngrok binary download in ngrok path ```./ngrok_bin/```
   * build or run
