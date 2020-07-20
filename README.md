@@ -1,7 +1,6 @@
 # gongrok
 
-## gongrok
-* golang [ngrok](https://ngrok.com/) wrapper
+## golang [ngrok](https://ngrok.com/) wrapper
   * `Secure introspectable tunnels to local host`
 
 ## Install
