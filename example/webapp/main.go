@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 	"sync"
+	"time"
 
 	"github.com/labstack/echo"
 
@@ -209,7 +210,7 @@ func main() {
 	gongrok.InitLoggerWriter("test")
 	e := echo.New()
 
-	e.StdLogger = gongrok.Logger
+	e.Logger.SetOutput(gongrok.Logger.Writer())
 	e.Static("/public", "public")
 	e.GET("/client", handleClientHome)
 
@@ -217,6 +218,10 @@ func main() {
 	e.POST("/client/disconnect", handleDisconnectClient)
 	// e.POST("/client/tunnel/disconnect", handleDisconnectTunnel)
 
-	gongrok.Logger.Fatal(e.Start(":8080"))
+	// SILLY DELAY TO PRINT EASY CLIENT ADDR
+	time.AfterFunc(1*time.Second, func() {
+		gongrok.Logger.Println("\nGONGROK CLIENT: http://localhost:8080/client")
+	})
 
+	gongrok.Logger.Fatal(e.Start(":8080"))
 }
