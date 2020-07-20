@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GONGROK</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <!-- <meta http-equiv="Content-Security-Policy" content=""> -->
+  <link rel="stylesheet" href="public/css/material.min.css" />
+</head>
+<style>
+  *,
+  html,
+  body {
+    color: #a9a9a9 !important;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #a9a9a9 !important;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #a9a9a9 !important;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #a9a9a9 !important;
+  }
+</style>
+
+<body class="bg-dark">
+  <div class="container" id="app">
+    <div class="form-group">
+      <h2 class="jumbotron bg-dark">{{strings.title}}</h2>
+      <div class="row">
+        <div class="col" v-show="!bools.clientcreated">
+          <div class="form-group">
+            <div class="" v-for="fdata in formdataconfig">
+              <label style="font-size: 2em;" class="" :for="'d'+fdata.key">{{fdata.title}}</label>
+              <input :id="'d'+fdata.key" v-if="fdata.key === 'host' || fdata.key === 'tunnelname'"
+                class="form-control form-control-lg" type="text" :placeholder="fdata.placeholder"
+                v-model="formdata[fdata.key]" @change="checkInput(fdata.key)" />
+              <input :id="'d'+fdata.key" v-else class="form-control form-control-lg" type="number" min="0" step="1"
+                :placeholder="fdata.placeholder" v-model="formdata[fdata.key]" @change="checkInput(fdata.key)" />
+            </div>
+            <button class="btn form-control" @click.prevent="initClient">{{strings.btns.initClient}}</button>
+          </div>
+
+        </div>
+        <div class="col" v-if="bools.clientcreated === true" v-show="bools.clientcreated">
+          <div class="form-group">
+            <a class="btn btn-lg btn-info" target="_blank"
+              :href="ngrok.data.tunnel.remoteaddr ?? ''">{{strings.btns.currentTunnel}}</a>
+            <div class="" id="ngrok-data" v-for="data in ngrok.data">
+              <li class="list-group">{{data}}</li>
+            </div>
+            <label style="font-size: 2em;" class="" for="ngrok">{{ngrok.data.client.id}}</label>
+            <input id="ngrok" class="form-control" type="text" readonly />
+            <button class="btn form-control"
+              @click.prevent="disconnectClient">{{strings.btns.disconnectClient}}</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+  <script src="public/js/axios.min.js"></script>
+  <script src="public/js/vue.js"></script>
+  <script src="public/js/index.js"></script>
+</body>
+
+</html>

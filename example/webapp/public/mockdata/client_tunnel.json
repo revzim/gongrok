@@ -1,0 +1,62 @@
+{
+  "data": {
+    "client": {
+      "Options": {
+        "SubDomain": "",
+        "AuthToken": "",
+        "Region": "us",
+        "ConfigPath": "",
+        "BinaryPath": "./ngrok_bin/ngrok",
+        "LogBinary": false
+      },
+      "Tunnel": [
+        {
+          "Proto": 0,
+          "Name": "dnd",
+          "LocalAddress": "localhost:8081",
+          "Auth": "",
+          "Inspect": false,
+          "RemoteAddress": "https://789asdf789h.ngrok.io",
+          "IsCreated": true
+        }
+      ],
+      "WebUIAddress": "127.0.0.1:4040",
+      "LogApi": true
+    },
+    "tunnel": {
+      "Proto": 0,
+      "Name": "dnd",
+      "LocalAddress": "localhost:8081",
+      "Auth": "",
+      "Inspect": false,
+      "RemoteAddress": "https://789asdf789h.ngrok.io",
+      "IsCreated": true
+    }
+  },
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-length": "498",
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Sat, 18 Jul 2020 21:44:27 GMT"
+  },
+  "config": {
+    "url": "/client/new",
+    "method": "post",
+    "data": {},
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1
+  },
+  "request": {}
+}
