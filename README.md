@@ -15,6 +15,9 @@
     
  * ``` go get github.com/revzim/gongrok ```
 
+## Author
+  * andy zimmelman
+
 ## Example
 
 ![Web App Image](https://i.imgur.com/XEerXOm.png)
