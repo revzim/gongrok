@@ -59,7 +59,7 @@
 ```
 
 ## Author
-  * andy zimmelman
+  * revzim
 
 #### Credits
 
