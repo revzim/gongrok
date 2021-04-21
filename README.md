@@ -34,8 +34,7 @@
 
 * An iOS app I was working on allows for the user to host a web server from their iOS device that acts as a simple web/chat server.
 * I wanted to figure out a way to allow others that are outside of the local network to connect and chat if the device's network is protected by a strict firewall.
-* I've used ngrok for a few other projects and figured it would be a decent place to start to test out the capabilities of whether or not web servers hosted on iOS devices on a local network could be exposed to the World Wide Web.
-* They can.
+* I've used ngrok for a few other projects and figured it would be a decent place to start to test out the capabilities of whether or not web servers hosted on iOS devices on a local network could be exposed to the World Wide Web, which ended up being easy to test and implement correctly.
 
 ### PkgGoDev & GoDoc
 
