@@ -32,6 +32,7 @@ import (
 	"os/exec"
 	"os/signal"
 	"regexp"
+	"runtime"
 	"sync"
 	"syscall"
 	"time"
@@ -42,6 +43,10 @@ import (
 // InitLoggerWriter -
 // INIT LOGGER FOR WRITING TO FILE/STDOUT
 func InitLoggerWriter(fileName string) {
+	err := ngrokBinExists()
+	if err != nil {
+		log.Fatalf("no ngrok binary in path <Settings.Path>: %s", Settings.Path)
+	}
 	t := time.Now()
 	formatted := t.Format("2006_02_01__15_04_05")
 	fileName = fmt.Sprintf("%s_%s.log", fileName, formatted)
@@ -53,9 +58,22 @@ func InitLoggerWriter(fileName string) {
 		log.Fatalf("error opening file: %v", err)
 	}
 	wrt := io.MultiWriter(os.Stdout, f)
-
 	Logger = log.New(wrt, fmt.Sprintf("gongrok | %s | > ", t.Format("2006_02_01__15_04_05")), 0)
 	Logger.Println("Logger Init...")
+}
+
+// ngrokBinExists
+func ngrokBinExists() error {
+	if runtime.GOOS == "windows" {
+		Settings.Path = fmt.Sprintf("%s.exe", Settings.Path)
+	}
+	f, err := os.OpenFile(Settings.Path, os.O_RDWR, 0644)
+	if errors.Is(err, os.ErrNotExist) {
+		return err
+	}
+	defer f.Close()
+
+	return nil
 }
 
 // NewClient -
