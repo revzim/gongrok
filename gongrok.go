@@ -65,7 +65,7 @@ func InitLoggerWriter(fileName string) {
 // ngrokBinExists
 func ngrokBinExists() error {
 	if runtime.GOOS == "windows" {
-		Settings.Path = fmt.Sprintf("%s.exe", Settings.Path)
+		Settings.Path = fmt.Sprintf("%s.exe", Settings.DefaultPath)
 	}
 	f, err := os.OpenFile(Settings.Path, os.O_RDWR, 0644)
 	if errors.Is(err, os.ErrNotExist) {
@@ -79,6 +79,10 @@ func ngrokBinExists() error {
 // NewClient -
 // INITS & RETURNS NEW CLIENT
 func NewClient(opt Options) (*Client, error) {
+	err := ngrokBinExists()
+	if err != nil {
+		log.Fatalf("no ngrok binary in path <Settings.Path>: %s", Settings.Path)
+	}
 	if Settings.ShouldLog {
 		Logger.Println("New client")
 	}
@@ -178,6 +182,7 @@ func (c *Client) StartNGROK(wg *sync.WaitGroup) error {
 
 	if err != nil {
 		Logger.Println("handleInitNGROK error:", err)
+		return err
 	}
 
 	return nil

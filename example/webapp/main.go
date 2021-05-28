@@ -136,8 +136,12 @@ func handleNewClient(c echo.Context) error {
 	})
 	if err != nil {
 		if gongrok.Settings.ShouldLog {
-			gongrok.Logger.Println(err)
+			gongrok.Logger.Fatal(err)
 		}
+		return c.JSON(http.StatusOK, echo.Map{
+			"error": err,
+			"code":  200,
+		})
 	}
 
 	wg := &sync.WaitGroup{}
