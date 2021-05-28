@@ -114,6 +114,7 @@ type (
 	// GONGROK SETTINGS
 	settings struct {
 		Path          string `json:"path"`          // PATH TO NGROK BINARY FILE (https://ngrok.com/download)
+		DefaultPath   string `json:"default_path"`  // PATH TO NGROK BINARY FILE (https://ngrok.com/download)
 		LogDir        string `json:"logdir"`        // DIRECTORY WHERE USER WANTS LOGS TO POPULATE
 		LogAPI        bool   `json:"logapi"`        // SHOULD LOG API OR NOT
 		ShouldLog     bool   `json:"shouldlog"`     // SHOULD LOG ANYTHING
@@ -146,6 +147,7 @@ var (
 	// NGROK DEFAULT SETTINGS
 	Settings = settings{
 		Path:          "./ngrok_bin/ngrok",
+		DefaultPath:   "./ngrok_bin/ngrok",
 		LogDir:        "./logs",
 		LogAPI:        false,
 		ShouldLog:     false,
