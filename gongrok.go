@@ -159,6 +159,7 @@ func (c *Client) StartNGROK(wg *sync.WaitGroup) error {
 			Logger.Printf("Pipe cmd err: %s", err.Error())
 			return err
 		}
+		return err
 	}
 
 	if err := cmd.Start(); err != nil {
